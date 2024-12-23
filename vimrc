@@ -19,7 +19,16 @@ set fileencoding=utf8
 
 " gVim-specific settings
 if has("gui_running")
-	" gVim fonts for Windows and Linux
+	" window geometry: width
+	set columns=85
+
+	" window geometry: height
+	set lines=25
+
+	" display line numbers on the left margin
+	set number
+
+	" fonts for Windows and Linux
 	if has("windows")
 		set guifont=Consolas:h16:cEASTEUROPE
 	elseif has("unix")
