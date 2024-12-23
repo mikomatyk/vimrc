@@ -17,6 +17,12 @@ set encoding=utf8
 " write encoding
 set fileencoding=utf8
 
+" use dark background in terminal
+set background=dark
+
+" use RetroBox color scheme
+colorscheme retrobox
+
 " gVim-specific settings
 if has("gui_running")
 	" window geometry: width
@@ -27,6 +33,12 @@ if has("gui_running")
 
 	" display line numbers on the left margin
 	set number
+
+	" use light background
+	set background=light
+
+	" use RetroBox color scheme
+	colorscheme retrobox
 
 	" fonts for Windows and Linux
 	if has("windows")
