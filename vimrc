@@ -1,6 +1,6 @@
 " Configuration file for Vim text editor
 "
-" Latest revision: 2024-12-22
+" Latest revision: 2024-12-23
 "
 " Written and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
 " please read LICENSE file for details.
@@ -22,6 +22,9 @@ set background=dark
 
 " use RetroBox color scheme
 colorscheme retrobox
+
+" enable syntax highlighting
+syntax on
 
 " gVim-specific settings
 if has("gui_running")
