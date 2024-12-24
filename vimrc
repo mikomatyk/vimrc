@@ -1,6 +1,6 @@
 " Configuration file for Vim text editor
 "
-" Latest revision: 2024-12-23
+" Latest revision: 2024-12-24
 "
 " Written and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
 " please read LICENSE file for details.
@@ -124,6 +124,6 @@ if has("gui_running")
 		set guifont=Monospace\ 16
 	endif
 else
-	" disable matching parenthesis highlighting in terminal
-	"let loaded_matchparen = 1
+	" uncomment to disable matching parenthesis highlighting in terminal
+	" let loaded_matchparen = 1
 endif
