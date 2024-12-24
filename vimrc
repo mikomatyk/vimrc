@@ -124,6 +124,6 @@ if has("gui_running")
 		set guifont=Monospace\ 16
 	endif
 else
-	" uncomment to disable matching parenthesis highlighting in terminal
+	" disable matching parenthesis highlighting in terminal
 	" let loaded_matchparen = 1
 endif
