@@ -1,6 +1,6 @@
 " Configuration file for Vim text editor
 "
-" Latest revision: 2024-12-24
+" Latest revision: 2024-12-25
 "
 " Written and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
 " please read LICENSE file for details.
@@ -126,4 +126,38 @@ if has("gui_running")
 else
 	" disable matching parenthesis highlighting in terminal
 	" let loaded_matchparen = 1
+endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" automatic commands
+if has("autocmd")
+	" wrap lines at 80th column in Plain Text files
+	autocmd FileType text setlocal textwidth=80
+
+	" wrap lines at 80th column in Markdown files
+	autocmd FileType markdown setlocal textwidth=80
+
+	" wrap lines at 72nd column in git commit messages
+	autocmd BufNewFile,BufReadPre COMMIT_EDITMSG setlocal textwidth=72
+
+	" wrap lines at 72nd column in alpine e-mail client
+	autocmd BufNewFile,BufReadPre /tmp/pico.* setlocal textwidth=72
+
+	" use spaces for code indentation in YAML files
+	autocmd FileType yaml setlocal expandtab
+
+	" delete empty or whitespace-only lines at the end of file
+	autocmd BufWritePre * :%s/\(\s*\n\)\+\%$//ge
+
+	" reduce each group of empty or whitespace-only lines to one empty line
+	autocmd BufWritePre * :%s/\(\s*\n\)\{3,}/\r\r/ge
+
+	" delete all trailing white spaces (caution when editing Markdown)
+	autocmd BufWritePre * :%s/\s\+$//ge
+
+	" restore a trailing space in e-mail signature separator (for Alpine)
+	autocmd BufWritePre /tmp/pico.* :%s/^--$/--\ /ge
+
+	" format Go source code on save
+	autocmd BufWritePre *.go :1,$!gofmt
 endif
