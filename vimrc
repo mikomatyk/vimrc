@@ -1,6 +1,6 @@
 " Configuration file for Vim text editor
 "
-" Latest revision: 2024-12-24
+" Latest revision: 2024-12-25
 "
 " Written and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
 " please read LICENSE file for details.
