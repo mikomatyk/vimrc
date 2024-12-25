@@ -152,10 +152,10 @@ if has("autocmd")
 	" reduce each group of empty or whitespace-only lines to one empty line
 	autocmd BufWritePre * :%s/\(\s*\n\)\{3,}/\r\r/ge
 
-	" delete all trailing white spaces (use with caution when editing Markdown)
+	" delete all trailing white spaces (caution when editing Markdown)
 	autocmd BufWritePre * :%s/\s\+$//ge
 
-	" restore a trailing space in e-mail signature separator (for alpine client)
+	" restore a trailing space in e-mail signature separator (for Alpine)
 	autocmd BufWritePre /tmp/pico.* :%s/^--$/--\ /ge
 
 	" format Go source code on save
