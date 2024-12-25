@@ -1,6 +1,6 @@
 " Configuration file for Vim text editor
 "
-" Latest revision: 2024-12-25
+" Latest revision: 2024-12-26
 "
 " Written and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
 " please read LICENSE file for details.
@@ -143,7 +143,7 @@ if has("autocmd")
 	" wrap lines at 72nd column in alpine e-mail client
 	autocmd BufNewFile,BufReadPre /tmp/pico.* setlocal textwidth=72
 
-	" use spaces for code indentation in YAML files
+	" use spaces for code indentation in YAML files, as required by YAML
 	autocmd FileType yaml setlocal expandtab
 
 	" delete empty or whitespace-only lines at the end of file
@@ -161,3 +161,77 @@ if has("autocmd")
 	" format Go source code on save
 	autocmd BufWritePre *.go :1,$!gofmt
 endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" center the view on the next search result
+nnoremap n nzz
+nnoremap N Nzz
+
+" press [F1] to toggle displaying line numbers
+" overrides the default [F1] behavior which is :help
+nnoremap <F1> :set number!<CR>
+inoremap <F1> <C-o>:set number!<CR>
+
+" press [Ctrl]+[F1] to toggle showing non-printable characters
+nnoremap <C-F1> :set list!<CR>
+inoremap <C-F1> <C-o>:set list!<CR>
+
+" press [Alt]+[F1] to toggle background between light and dark
+nnoremap <M-F1> :let &bg = (&bg == "dark" ? "light" : "dark")<CR>
+inoremap <M-F1> <C-o>:let &bg = (&bg == "dark" ? "light" : "dark")<CR>
+
+" press [F2] to set tabstop/shiftwidth to 2 columns
+nnoremap <F2> :set tabstop=2 softtabstop=2 shiftwidth=2<CR>
+inoremap <F2> <C-o>:set tabstop=2 softtabstop=2 shiftwidth=2<CR>
+
+" press [F3] to set tabstop/shiftwidth to 4 columns
+nnoremap <F3> :set tabstop=4 softtabstop=4 shiftwidth=4<CR>
+inoremap <F3> <C-o>:set tabstop=4 softtabstop=4 shiftwidth=4<CR>
+
+" press [F4] to set tabstop/shiftwidth to 8 columns
+nnoremap <F4> :set tabstop=8 softtabstop=8 shiftwidth=8<CR>
+inoremap <F4> <C-o>:set tabstop=8 softtabstop=8 shiftwidth=8<CR>
+
+" press [F5] to turn search results highlight off
+nnoremap <F5> :nohl<CR>
+inoremap <F5> <C-o>:nohl<CR>
+
+" press [F6] to English spellcheck (z= for proposed corrections)
+nnoremap <F6> :set spell! spelllang=en<CR>
+inoremap <F6> <Esc>:set spell! spelllang=en<CR>
+
+" press [F7] to fix indentation in the whole file
+nnoremap <F7> m'ggVG=``zz
+inoremap <F7> <Esc>m'ggVG=``zzgi
+
+" press [Ctrl]+[F7] to justify current paragraph (macros/justify.vim required)
+nmap <C-F7> m'vip_j``zz
+imap <C-F7> <Esc>m'vip_j``zzgi
+
+" press [Alt]+[F7] to justify the whole file (macros/justify.vim required)
+nmap <M-F7> m'_j``zz
+imap <M-F7> <Esc>m'_j``zzgi
+
+" press [F8] to sort current paragraph
+nnoremap <F8> m'vip:sort<CR>``zz
+inoremap <F8> <Esc>m'vip:sort<CR>``zzgi
+
+" press [Ctrl]+[F8] to sort current paragraph removing duplicate lines
+nnoremap <C-F8> m'vip:sort u<CR>``zz
+inoremap <C-F8> <Esc>m'vip:sort u<CR>``zzgi
+
+" press [F9] to automatically break long lines at 50th column
+nnoremap <F9> :set textwidth=50<CR>
+inoremap <F9> <C-o>:set textwidth=50<CR>
+
+" press [F10] to automatically break long lines at 72nd column
+nnoremap <F10> :set textwidth=72<CR>
+inoremap <F10> <C-o>:set textwidth=72<CR>
+
+" press [F11] to automatically break long lines at 80th column
+nnoremap <F11> :set textwidth=80<CR>
+inoremap <F11> <C-o>:set textwidth=80<CR>
+
+" press [F12] to disable breaking long lines
+nnoremap <F12> :set textwidth=0<CR>
+inoremap <F12> <C-o>:set textwidth=0<CR>
