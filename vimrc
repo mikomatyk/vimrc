@@ -205,12 +205,12 @@ nnoremap <F7> m'ggVG=``zz
 inoremap <F7> <Esc>m'ggVG=``zzgi
 
 " press [Ctrl]+[F7] to justify current paragraph (macros/justify.vim required)
-nmap <C-F7> m'_j``zz
-imap <C-F7> <Esc>m'_j``zzgi
+nmap <C-F7> m'vip_j``zz
+imap <C-F7> <Esc>m'vip_j``zzgi
 
 " press [Alt]+[F7] to justify the whole file (macros/justify.vim required)
-nmap <M-F7> m'vip_j``zz
-imap <M-F7> <Esc>m'vip_j``zzgi
+nmap <M-F7> m'_j``zz
+imap <M-F7> <Esc>m'_j``zzgi
 
 " press [F8] to sort current paragraph
 nnoremap <F8> m'vip:sort<CR>``zz
