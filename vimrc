@@ -143,7 +143,7 @@ if has("autocmd")
 	" wrap lines at 72nd column in alpine e-mail client
 	autocmd BufNewFile,BufReadPre /tmp/pico.* setlocal textwidth=72
 
-	" use spaces for code indentation in YAML files
+	" use spaces for code indentation in YAML files, as required by YAML
 	autocmd FileType yaml setlocal expandtab
 
 	" delete empty or whitespace-only lines at the end of file
