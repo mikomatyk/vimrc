@@ -17,30 +17,30 @@ tempDir="vim$currentTime"
 indentDir="indent"
 indentFile="sh.vim"
 
-function writeLog() {
+function WriteLog() {
 	echo "$0: ${FUNCNAME[1]}"
 }
 
 function CloneVimRepository() {
-	writeLog
+	WriteLog
 	git clone $vimRepoUrl $tempDir
 }
 
 function CreateLocalIndentFile() {
-	writeLog
+	WriteLog
 	mkdir -p $indentDir
 	cp $tempDir/runtime/indent/sh.vim $indentDir
 }
 
 function ModifyLocalIndentFile() {
-	writeLog
+	WriteLog
 	defaultSetting="'case-labels': function('shiftwidth')"
 	newSetting="'case-labels': 0"
 	sed -i "s/$defaultSetting/$newSetting/g" "$indentDir/$indentFile"
 }
 
 function RemoveTemporaryDirectory() {
-	writeLog
+	WriteLog
 	rm -rf $tempDir
 }
 
