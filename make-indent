@@ -13,27 +13,27 @@ set -e
 
 vimRepoUrl="https://github.com/vim/vim"
 currentTime=$(date +%s)
-cloneDir="vim$currentTime"
-localIndentDir="indent"
-shellIndentFile="sh.vim"
+tempDir="vim$currentTime"
+indentDir="indent"
+indentFile="sh.vim"
 
 function CloneVimRepository() {
-	git clone $vimRepoUrl $cloneDir
+	git clone $vimRepoUrl $tempDir
 }
 
 function CreateLocalIndentFile() {
-	mkdir -p $localIndentDir
-	cp $cloneDir/runtime/indent/sh.vim $localIndentDir
+	mkdir -p $indentDir
+	cp $tempDir/runtime/indent/sh.vim $indentDir
 }
 
 function RemoveCloneDirectory() {
-	rm -rf $cloneDir
+	rm -rf $tempDir
 }
 
 function ModifyLocalIndentFile() {
 	defaultSetting="'case-labels': function('shiftwidth')"
 	newSetting="'case-labels': 0"
-	sed -i "s/$defaultSetting/$newSetting/g" "$localIndentDir/$shellIndentFile"
+	sed -i "s/$defaultSetting/$newSetting/g" "$indentDir/$indentFile"
 }
 
 function Main() {
