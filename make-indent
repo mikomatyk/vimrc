@@ -26,7 +26,7 @@ function CreateLocalIndentFile() {
 	cp $tempDir/runtime/indent/sh.vim $indentDir
 }
 
-function RemoveCloneDirectory() {
+function RemoveTemporaryDirectory() {
 	rm -rf $tempDir
 }
 
@@ -39,7 +39,7 @@ function ModifyLocalIndentFile() {
 function Main() {
 	CloneVimRepository
 	CreateLocalIndentFile
-	RemoveCloneDirectory
+	RemoveTemporaryDirectory
 	ModifyLocalIndentFile
 }
 
