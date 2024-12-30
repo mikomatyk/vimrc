@@ -1,0 +1,5 @@
+# customized indent files
+indent/
+
+# make-indent script temporary directory
+vim[0-9]*/
