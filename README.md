@@ -25,6 +25,16 @@ Clone the whole repository into ~/.vim directory:
 
 That's it, done!
 
+## Indentation tuning
+
+If you don't like case labels indenting in Shell scripts, run the provided
+_make-indent_ script:
+
+    make-indent
+
+It will create a local copy of the Vim Shell indent file, modified so that case
+labels in Shell scripts are no longer indented.
+
 ## Author
 
 Written and unlicensed by [Mikołaj Bartnicki](mailto:mikolaj@bartnicki.org); see
