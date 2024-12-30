@@ -12,8 +12,7 @@
 set -e
 
 vimRepoUrl="https://github.com/vim/vim"
-currentTime=$(date +%s)
-tempDir="vim$currentTime"
+tempDir="$(mktemp -d)"
 indentDir="indent"
 indentFile="sh.vim"
 
@@ -23,13 +22,13 @@ function WriteLog() {
 
 function CloneVimRepository() {
 	WriteLog
-	git clone $vimRepoUrl $tempDir
+	git clone "$vimRepoUrl" "$tempDir"
 }
 
 function CreateLocalIndentFile() {
 	WriteLog
-	mkdir -p $indentDir
-	cp $tempDir/runtime/indent/sh.vim $indentDir
+	mkdir -p "$indentDir"
+	cp "$tempDir/runtime/indent/sh.vim" "$indentDir"
 }
 
 function ModifyLocalIndentFile() {
@@ -41,7 +40,7 @@ function ModifyLocalIndentFile() {
 
 function RemoveTemporaryDirectory() {
 	WriteLog
-	rm -rf $tempDir
+	rm -rf "$tempDir"
 }
 
 function Main() {
