@@ -27,13 +27,15 @@ That's it, done!
 
 ## Indentation tuning
 
-If you dislike the default indentation of `case` labels in Shell scripts, you can use the provided `make-indent` script:
+If you dislike Vim's default indentation of `case` labels in Shell scripts,
+you can use the provided `make-indent` script:
 
     make-indent
 
-This script will create a local copy of the Vim Shell indent file, modified so that `case` labels in Shell scripts are no longer indented.
+This script will create a local copy of the Vim Shell indent file, modified so
+that `case` labels in Shell scripts are no longer indented.
 
-Reverting to the default behavior is as simple as deleting the local
+Reverting to the original default behavior is as simple as deleting the local
 `./indent/sh.vim` file.
 
 ## Author
