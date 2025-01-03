@@ -3,7 +3,7 @@
 # Creates a custom Vim indent file disabling case labels indentation in Shell
 # scripts. Must be run from ~/.vim (Linux) or ~/vimfiles (Windows) directory.
 #
-# Latest revision: 2024-12-31
+# Latest revision: 2025-01-03
 #
 # Written and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
 # please read LICENSE file for details.
