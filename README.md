@@ -34,8 +34,9 @@ following script:
 
     smart-tabs
 
-This script downloads and installs the [Smart Tabs](00) plugin by Michael Geddes.
-Although this plugin has not been maintained for years, it still works for me.
+This script downloads and installs the [Smart Tabs][00] plugin made by Michael
+Geddes. Although this plugin has not been maintained for many years, it still
+works for me.
 
 ### Case labels
 
@@ -51,8 +52,9 @@ file.
 
 ## Author
 
-Written and unlicensed by [Mikołaj Bartnicki](99); see [LICENSE](LICENSE) for
+Written and unlicensed by [Mikołaj Bartnicki][98]; see [LICENSE][99] for
 details.
 
-[00](https://www.vim.org/scripts/download_script.php?src_id=14989)
-[99](mailto:mikolaj@bartnicki.org)
+[00]:(https://www.vim.org/scripts/download_script.php?src_id=14989)
+[98]:(LICENSE)
+[99]:(mailto:mikolaj@bartnicki.org)
