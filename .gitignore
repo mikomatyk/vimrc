@@ -1,2 +1,5 @@
-# custom indent files
+# local indent files
 indent/
+
+# local plugins
+plugin/
