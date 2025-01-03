@@ -56,5 +56,5 @@ Written and unlicensed by [Mikołaj Bartnicki][98]; see [LICENSE][99] for
 details.
 
 [00]:(https://www.vim.org/scripts/download_script.php?src_id=14989)
-[98]:(LICENSE)
-[99]:(mailto:mikolaj@bartnicki.org)
+[98]:(mailto:mikolaj@bartnicki.org)
+[99]:(LICENSE)
