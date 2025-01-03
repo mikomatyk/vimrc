@@ -34,9 +34,9 @@ following script:
 
     smart-tabs
 
-This script downloads and installs the [Smart Tabs][00] plugin made by Michael
-Geddes. Although this plugin has not been maintained for many years, it still
-works for me.
+This script downloads and locally installs the [Smart Tabs][00] plugin made by
+Michael Geddes. Although this plugin has not been maintained for many years, it
+still works for me.
 
 ### Case labels
 
