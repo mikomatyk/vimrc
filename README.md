@@ -32,7 +32,7 @@ That's it, done!
 To make Vim use tabs for indentation and spaces for alignment, run the following
 script:
 
-    install-smarttabs
+    smart-tabs
 
 This script downloads and installs the [Smart Tabs](00) plugin by Michael Geddes.
 Although this plugin has not been maintained for years, it still works for me.
@@ -42,7 +42,7 @@ Although this plugin has not been maintained for years, it still works for me.
 If you dislike Vim's default indentation of `case` labels in Shell scripts,
 you can use the provided `make-indent` script:
 
-    make-indent
+    shell-indent
 
 This script will create a local copy of the Vim Shell indent file, modified so
 that `case` labels in Shell scripts are no longer indented. Reverting to the
