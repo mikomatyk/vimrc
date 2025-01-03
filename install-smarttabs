@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# Installs smart tabs plugin (tabs for indentation, spaces for alignment).
+#
+# Latest revision: 2025-01-03
+#
+# Written and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
+# please read LICENSE file for details.
+
+# exit on first error
+set -e
+
+function WriteLog() {
+	echo "$0: ${FUNCNAME[1]}"
+}
+
+function Main() {
+	echo "$0: done."
+}
+
+Main
