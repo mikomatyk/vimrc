@@ -134,6 +134,9 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " automatic commands
 if has("autocmd")
+	" TODO: fixes rust indentation
+	autocmd FileType rust setlocal sw=8 noet
+
 	" wrap lines at 80th column in Plain Text files
 	autocmd FileType text setlocal textwidth=80
 
