@@ -147,7 +147,7 @@ if has("autocmd")
 	autocmd BufNewFile,BufReadPre /tmp/pico.* setlocal textwidth=72
 
 	" force tabs for Rust code indentation (FileType plugin uses 4 spaces)
-	autocmd FileType rust setlocal shiftwidth=8 noexpandtab
+	autocmd FileType rust setlocal noexpandtab shiftwidth=8
 
 	" use spaces for code indentation in YAML files, as required by YAML
 	autocmd FileType yaml setlocal expandtab
