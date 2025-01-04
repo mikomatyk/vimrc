@@ -1,6 +1,6 @@
 " Configuration file for Vim text editor
 "
-" Latest revision: 2024-12-27
+" Latest revision: 2025-01-04
 "
 " Written and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
 " please read LICENSE file for details.
@@ -145,6 +145,9 @@ if has("autocmd")
 
 	" wrap lines at 72nd column in alpine e-mail client
 	autocmd BufNewFile,BufReadPre /tmp/pico.* setlocal textwidth=72
+
+	" force tabs for Rust code indentation (FileType plugin uses 4 spaces)
+	autocmd FileType rust setlocal shiftwidth=8 noexpandtab
 
 	" use spaces for code indentation in YAML files, as required by YAML
 	autocmd FileType yaml setlocal expandtab
