@@ -146,7 +146,7 @@ if has("autocmd")
 	" wrap lines at 72nd column in alpine e-mail client
 	autocmd BufNewFile,BufReadPre /tmp/pico.* setlocal textwidth=72
 
-	" force tabs for Rust code indenting (FileType plugin uses four spaces)
+	" force tabs for Rust code indentation (FileType plugin uses 4 spaces)
 	autocmd FileType rust setlocal shiftwidth=8 noexpandtab
 
 	" use spaces for code indentation in YAML files, as required by YAML
