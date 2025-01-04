@@ -1,6 +1,6 @@
 " Configuration file for Vim text editor
 "
-" Latest revision: 2024-12-27
+" Latest revision: 2025-01-04
 "
 " Written and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
 " please read LICENSE file for details.
@@ -134,9 +134,6 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " automatic commands
 if has("autocmd")
-	" TODO: fixes rust indentation
-	autocmd FileType rust setlocal sw=8 noet
-
 	" wrap lines at 80th column in Plain Text files
 	autocmd FileType text setlocal textwidth=80
 
@@ -148,6 +145,9 @@ if has("autocmd")
 
 	" wrap lines at 72nd column in alpine e-mail client
 	autocmd BufNewFile,BufReadPre /tmp/pico.* setlocal textwidth=72
+
+	" force tabs for Rust code indenting (FileType plugin uses four spaces)
+	autocmd FileType rust setlocal shiftwidth=8 noexpandtab
 
 	" use spaces for code indentation in YAML files, as required by YAML
 	autocmd FileType yaml setlocal expandtab
