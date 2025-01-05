@@ -1,6 +1,6 @@
 " Configuration file for Vim text editor
 "
-" Latest revision: 2025-01-04
+" Latest revision: 2025-01-05
 "
 " Written and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
 " please read LICENSE file for details.
@@ -147,7 +147,7 @@ if has("autocmd")
 	autocmd BufNewFile,BufReadPre /tmp/pico.* setlocal textwidth=72
 
 	" force tabs for Rust code indentation (FileType plugin uses 4 spaces)
-	autocmd FileType rust setlocal shiftwidth=8 noexpandtab
+	autocmd FileType rust setlocal noexpandtab shiftwidth=8
 
 	" use spaces for code indentation in YAML files, as required by YAML
 	autocmd FileType yaml setlocal expandtab
@@ -165,7 +165,14 @@ if has("autocmd")
 	autocmd BufWritePre /tmp/pico.* :%s/^--$/--\ /ge
 
 	" format Go source code on save
-	autocmd BufWritePre *.go :1,$!gofmt
+	if executable("gofmt")
+		autocmd BufWritePre *.go :1,$!gofmt
+	endif
+
+	" format Rust source code on save
+	if executable("rustfmt")
+		autocmd BufWritePre *.rs :1,$!rustfmt
+	endif
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
