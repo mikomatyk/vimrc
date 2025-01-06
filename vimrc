@@ -1,12 +1,9 @@
 " Configuration file for Vim text editor
 "
-" Latest revision: 2025-01-05
+" Latest revision: 2025-01-07
 "
 " Written and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
 " please read LICENSE file for details.
-"
-" Known bug:
-" Formatting code using [F7] in Normal mode resets the cursor position
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " work as Vi Improved instead of pure Vi, must be the first one
