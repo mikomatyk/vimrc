@@ -3,3 +3,6 @@ indent/
 
 # local plugins
 plugin/
+
+# local spellcheck files
+spell/

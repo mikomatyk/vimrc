@@ -6,7 +6,7 @@
 " please read LICENSE file for details.
 "
 " Known bug:
-" Formatting code using [F7] resets the cursor position
+" Formatting code using [F7] in Normal mode resets the cursor position
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " work as Vi Improved instead of pure Vi, must be the first one
@@ -126,9 +126,6 @@ if has("gui_running")
 	elseif has("unix")
 		set guifont=Monospace\ 16
 	endif
-else
-	" disable matching parenthesis highlighting in terminal
-	" let loaded_matchparen = 1
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -180,8 +177,7 @@ endif
 nnoremap n nzz
 nnoremap N Nzz
 
-" press [F1] to toggle displaying line numbers
-" overrides the default [F1] behavior which is :help
+" press [F1] to toggle displaying line numbers (default for [F1] is :help)
 nnoremap <F1> :set number!<CR>
 inoremap <F1> <C-o>:set number!<CR>
 
@@ -213,25 +209,29 @@ inoremap <F5> <C-o>:nohl<CR>
 nnoremap <F6> :set spell! spelllang=en<CR>
 inoremap <F6> <Esc>:set spell! spelllang=en<CR>
 
+" press [Ctrl]+[F6] to Polish spellcheck (z= for proposed corrections)
+nnoremap <C-F6> :set spell! spelllang=pl<CR>
+inoremap <C-F6> <Esc>:set spell! spelllang=pl<CR>
+
 " press [F7] to fix indentation in the whole file
-nnoremap <F7> m'ggVG=``zz
-inoremap <F7> <Esc>m'ggVG=``zzgi
+nnoremap <F7> mxggVG=`xzz
+inoremap <F7> <Esc>mxggVG=`xzza
 
 " press [Ctrl]+[F7] to justify current paragraph (macros/justify.vim required)
-nmap <C-F7> m'vip_j``zz
-imap <C-F7> <Esc>m'vip_j``zzgi
+nmap <C-F7> mxvip_j`xzz
+imap <C-F7> <Esc>mxvip_j`xzza
 
 " press [Alt]+[F7] to justify the whole file (macros/justify.vim required)
-nmap <M-F7> m'_j``zz
-imap <M-F7> <Esc>m'_j``zzgi
+nmap <M-F7> mx_j`xzz
+imap <M-F7> <Esc>mx_j`xzza
 
 " press [F8] to sort current paragraph
-nnoremap <F8> m'vip:sort<CR>``zz
-inoremap <F8> <Esc>m'vip:sort<CR>``zzgi
+nnoremap <F8> mxvip:sort<CR>`xzz
+inoremap <F8> <Esc>mxvip:sort<CR>`xzza
 
 " press [Ctrl]+[F8] to sort current paragraph removing duplicate lines
-nnoremap <C-F8> m'vip:sort u<CR>``zz
-inoremap <C-F8> <Esc>m'vip:sort u<CR>``zzgi
+nnoremap <C-F8> mxvip:sort u<CR>`xzz
+inoremap <C-F8> <Esc>mxvip:sort u<CR>`xzza
 
 " press [F9] to automatically break long lines at 50th column
 nnoremap <F9> :set textwidth=50<CR>

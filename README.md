@@ -25,7 +25,7 @@ Clone the whole repository into `~/.vim` directory:
 
 That's it, done!
 
-## Indentation tuning
+## Optional settings
 
 ### Smart tabs
 
@@ -38,7 +38,7 @@ This script downloads and locally installs the [Smart Tabs][00] plugin made by
 Michael Geddes. Although this plugin has not been maintained for many years, it
 still works for me.
 
-### Case labels
+### Case labels in Shell scripts
 
 To disable indenting of case labels in Shell scripts code, run the following
 script:
@@ -50,11 +50,23 @@ so that `case` labels in Shell scripts are no longer indented. Reverting to the
 original default behavior is as simple as deleting the local `./indent/sh.vim`
 file.
 
+### Polish spellcheck dictionary
+
+To install Polish spellcheck dictionary, run the following script:
+
+    polish-spell
+
+This script will download Polish [Hunspell][01] dictionary from the
+[LibreOffice][02] repository and convert it into local `pl.utf-8.spl` file that
+is suitable for Vim's spellchecker.
+
 ## Author
 
-Written and unlicensed by [Mikołaj Bartnicki][98]; see [LICENSE][99] for
-details.
+Written and unlicensed by [Mikołaj Bartnicki][98]; please read [UNLICENSE][99]
+file for details.
 
 [00]:https://www.vim.org/scripts/script.php?script_id=231
+[01]:https://hunspell.github.io
+[02]:https://libreoffice.org
 [98]:mailto:mikolaj@bartnicki.org
-[99]:LICENSE
+[99]:UNLICENSE

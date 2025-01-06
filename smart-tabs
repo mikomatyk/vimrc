@@ -2,12 +2,12 @@
 
 # Installs smart tabs plugin (tabs for indentation, spaces for alignment).
 #
-# Latest revision: 2025-01-03
+# Latest revision: 2025-01-06
 #
 # Written and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
-# please read LICENSE file for details.
+# please read UNLICENSE file for details.
 
-# exit on first error
+# stop and exit on first error
 set -e
 
 downloadUrl="https://www.vim.org/scripts/download_script.php?src_id=14989"
@@ -15,7 +15,7 @@ pluginDir="plugin"
 pluginFile="smarttabs.vim"
 
 function WriteLog() {
-	echo "$0: ${FUNCNAME[1]}"
+	echo "$0: ${FUNCNAME[1]}()"
 }
 
 function DownloadPlugin() {
@@ -26,7 +26,6 @@ function DownloadPlugin() {
 
 function Main() {
 	DownloadPlugin
-	echo "$0: done."
 }
 
 Main

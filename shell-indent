@@ -3,12 +3,12 @@
 # Creates a custom Vim indent file disabling case labels indentation in Shell
 # scripts. Must be run from ~/.vim (Linux) or ~/vimfiles (Windows) directory.
 #
-# Latest revision: 2025-01-03
+# Latest revision: 2025-01-06
 #
 # Written and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
-# please read LICENSE file for details.
+# please read UNLICENSE file for details.
 
-# exit on first error
+# stop and exit on first error
 set -e
 
 vimRepoUrl="https://github.com/vim/vim"
@@ -17,7 +17,7 @@ indentDir="indent"
 indentFile="sh.vim"
 
 function WriteLog() {
-	echo "$0: ${FUNCNAME[1]}"
+	echo "$0: ${FUNCNAME[1]}()"
 }
 
 function CloneVimRepository() {
@@ -48,7 +48,6 @@ function Main() {
 	CreateLocalIndentFile
 	ModifyLocalIndentFile
 	RemoveTemporaryDirectory
-	echo "$0: done."
 }
 
 Main
