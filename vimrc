@@ -1,6 +1,6 @@
 " Configuration file for Vim text editor
 "
-" Latest revision: 2025-01-07
+" Latest revision: 2025-01-08
 "
 " Written and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
 " please read LICENSE file for details.
@@ -202,13 +202,13 @@ inoremap <F4> <C-o>:set tabstop=8 softtabstop=8 shiftwidth=8<CR>
 nnoremap <F5> :nohl<CR>
 inoremap <F5> <C-o>:nohl<CR>
 
-" press [F6] to English spellcheck (z= for proposed corrections)
-nnoremap <F6> :set spell! spelllang=en<CR>
-inoremap <F6> <Esc>:set spell! spelllang=en<CR>
+" press [F6] to Polish spellcheck (z= for proposed corrections)
+nnoremap <F6> :set spell! spelllang=pl<CR>
+inoremap <F6> <Esc>:set spell! spelllang=pl<CR>
 
-" press [Ctrl]+[F6] to Polish spellcheck (z= for proposed corrections)
-nnoremap <C-F6> :set spell! spelllang=pl<CR>
-inoremap <C-F6> <Esc>:set spell! spelllang=pl<CR>
+" press [Ctrl]+[F6] to English spellcheck (z= for proposed corrections)
+nnoremap <C-F6> :set spell! spelllang=en<CR>
+inoremap <C-F6> <Esc>:set spell! spelllang=en<CR>
 
 " press [F7] to fix indentation in the whole file
 nnoremap <F7> mxggVG=`xzz

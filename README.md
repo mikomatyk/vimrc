@@ -1,4 +1,4 @@
-# vimrc
+# Vimrc
 
 A set of my configuration files for Vim text editor. This is a compilation of
 many different configs I made for myself over the long time since I was
