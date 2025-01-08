@@ -1,6 +1,6 @@
 " Configuration file for Vim text editor
 "
-" Latest revision: 2025-01-08
+" Latest revision: 2025-01-09
 "
 " Written and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
 " please read LICENSE file for details.
@@ -33,7 +33,7 @@ set textwidth=0
 " tabstop size (columns)
 set tabstop=8
 
-" use real tab character, don't fill tabs with spaces
+" don't fill tabs with spaces, use real tab character
 set noexpandtab
 
 " number of spaces for [Tab] and [Backspace]
@@ -174,13 +174,13 @@ endif
 nnoremap n nzz
 nnoremap N Nzz
 
-" press [F1] to toggle displaying line numbers (default for [F1] is :help)
-nnoremap <F1> :set number!<CR>
-inoremap <F1> <C-o>:set number!<CR>
+" press [F1] to toggle showing non-printable characters
+nnoremap <F1> :set list!<CR>
+inoremap <F1> <C-o>:set list!<CR>
 
-" press [Ctrl]+[F1] to toggle showing non-printable characters
-nnoremap <C-F1> :set list!<CR>
-inoremap <C-F1> <C-o>:set list!<CR>
+" press [Ctrl]+[F1] to toggle displaying line numbers (default for [F1] is :help)
+nnoremap <C-F1> :set number!<CR>
+inoremap <C-F1> <C-o>:set number!<CR>
 
 " press [Alt]+[F1] to toggle background between light and dark
 nnoremap <M-F1> :let &bg = (&bg == "dark" ? "light" : "dark")<CR>
