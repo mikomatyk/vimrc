@@ -1,6 +1,6 @@
 " Configuration file for Vim text editor
 "
-" Latest revision: 2025-01-09
+" Latest revision: 2025-01-10
 "
 " Written and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
 " please read LICENSE file for details.
@@ -35,9 +35,6 @@ set tabstop=8
 
 " don't fill tabs with spaces, use real tab character
 set noexpandtab
-
-" number of spaces for [Tab] and [Backspace]
-set softtabstop=8
 
 " code indentation depth
 set shiftwidth=8
@@ -178,9 +175,9 @@ nnoremap N Nzz
 nnoremap <F1> :set list!<CR>
 inoremap <F1> <C-o>:set list!<CR>
 
-" press [Ctrl]+[F1] to toggle displaying line numbers (default for [F1] is :help)
-nnoremap <C-F1> :set number!<CR>
-inoremap <C-F1> <C-o>:set number!<CR>
+" press [Ctrl]+[F1] to toggle line numbers display mode (default [F1] is :help)
+nnoremap <C-F1> :set number!<CR>:set relativenumber!<CR>
+inoremap <C-F1> <C-o>:set number!<CR><C-o>:set relativenumber!<CR>
 
 " press [Alt]+[F1] to toggle background between light and dark
 nnoremap <M-F1> :let &bg = (&bg == "dark" ? "light" : "dark")<CR>
@@ -198,9 +195,13 @@ inoremap <F3> <C-o>:set tabstop=4 softtabstop=4 shiftwidth=4<CR>
 nnoremap <F4> :set tabstop=8 softtabstop=8 shiftwidth=8<CR>
 inoremap <F4> <C-o>:set tabstop=8 softtabstop=8 shiftwidth=8<CR>
 
-" press [F5] to turn search results highlight off
+" press [F5] to turn search results highlighting off
 nnoremap <F5> :nohl<CR>
 inoremap <F5> <C-o>:nohl<CR>
+
+" press [Ctrl]+[F5] to toggle highlighting of the cursor line
+nnoremap <C-F5> :set cursorline!<CR>
+inoremap <C-F5> <C-o>:set cursorline!<CR>
 
 " press [F6] to Polish spellcheck (z= for proposed corrections)
 nnoremap <F6> :set spell! spelllang=pl<CR>
