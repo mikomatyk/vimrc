@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+# Installs smart tabs plugin (tabs for indentation, spaces for alignment).
+#
+# Latest revision: 2025-01-15
+#
+# Written and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
+# please read UNLICENSE file for details.
+
+# stop and exit on first error
+set -e
+
+download_url="https://www.vim.org/scripts/download_script.php?src_id=14989"
+plugin_dir="plugin"
+plugin_file="smart_tabs.vim"
+
+function write_log() {
+	echo "::::::::$0::${FUNCNAME[1]}()"
+}
+
+function download_plugin() {
+	write_log
+	mkdir -p "$plugin_dir"
+	curl "$download_url" -o "$plugin_dir/$plugin_file"
+}
+
+function main() {
+	write_log
+	download_plugin
+}
+
+main

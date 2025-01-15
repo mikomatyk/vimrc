@@ -1,6 +1,6 @@
 " Configuration file for Vim text editor
 "
-" Latest revision: 2025-01-10
+" Latest revision: 2025-01-15
 "
 " Written and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
 " please read LICENSE file for details.
@@ -77,7 +77,7 @@ set listchars=eol:$,tab:>-,space:.,trail:.,extends:+,precedes:+,conceal:=,nbsp:_
 " use dark background in terminal
 set background=dark
 
-" use RetroBox color scheme
+" use retrobox color scheme
 colorscheme retrobox
 
 " enable syntax highlighting
@@ -111,7 +111,7 @@ if has("gui_running")
 	" use light background
 	set background=light
 
-	" use RetroBox color scheme
+	" use retrobox color scheme
 	colorscheme retrobox
 
 	" fonts for Windows and Linux
@@ -157,14 +157,22 @@ if has("autocmd")
 
 	" format Go source code on save
 	if executable("gofmt")
-		autocmd BufWritePre *.go :1,$!gofmt
+		autocmd BufWritePre *.go call Format_source_code("gofmt")
 	endif
 
 	" format Rust source code on save
 	if executable("rustfmt")
-		autocmd BufWritePre *.rs :1,$!rustfmt
+		autocmd BufWritePre *.rs call Format_source_code("rustfmt")
 	endif
 endif
+
+" format source code in the current buffer using the external tool
+" - formatter: the external formatting command, such as 'gofmt' or 'rustfmt'
+function Format_source_code(formatter)
+	let l:pos = getpos(".")
+	execute '1,$!' . a:formatter
+	call setpos('.', l:pos)
+endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " center the view on the next search result

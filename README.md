@@ -32,7 +32,7 @@ That's it, done!
 To make Vim use tabs for code indentation and spaces for alignment, run the
 following script:
 
-    smart-tabs
+    smart_tabs
 
 This script downloads and locally installs the [Smart Tabs][00] plugin made by
 Michael Geddes. Although this plugin has not been maintained for many years, it
@@ -43,7 +43,7 @@ still works for me.
 To disable indenting of case labels in Shell scripts code, run the following
 script:
 
-    shell-indent
+    shell_indent
 
 This script will create a local copy of the Vim Shell indent file, and modify it
 so that `case` labels in Shell scripts are no longer indented. Reverting to the
@@ -54,19 +54,18 @@ file.
 
 To install Polish spellcheck dictionary, run the following script:
 
-    polish-spell
+    polish_spell
 
 This script will download Polish [Hunspell][01] dictionary from the
-[LibreOffice][02] repository and convert it into local `pl.utf-8.spl` file that
-is suitable for Vim's spellchecker.
+[LibreOffice][02] repository and then convert it into local
+`./spell/pl.utf-8.spl` file that is suitable for Vim's spellchecker.
 
 ## Author
 
-Written and unlicensed by [Mikołaj Bartnicki][98]; please read [UNLICENSE][99]
-file for details.
+Created and [unlicensed][98] by [Mikołaj Bartnicki][99]
 
 [00]:https://www.vim.org/scripts/script.php?script_id=231
 [01]:https://hunspell.github.io
 [02]:https://libreoffice.org
-[98]:mailto:mikolaj@bartnicki.org
-[99]:UNLICENSE
+[98]:UNLICENSE
+[99]:mailto:mikolaj@bartnicki.org

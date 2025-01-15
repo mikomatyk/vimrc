@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+# Creates a custom Vim indent file disabling case labels indentation in Shell
+# scripts. Must be run from ~/.vim (Linux) or ~/vimfiles (Windows) directory.
+#
+# Latest revision: 2025-01-15
+#
+# Written and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
+# please read UNLICENSE file for details.
+
+# stop and exit on first error
+set -e
+
+vim_repo_url="https://github.com/vim/vim"
+temp_dir="$(mktemp -d)"
+indent_dir="indent"
+indent_file="sh.vim"
+
+function write_log() {
+	echo "::::::::$0::${FUNCNAME[1]}()"
+}
+
+function clone_vim_repo() {
+	write_log
+	git clone "$vim_repo_url" "$temp_dir"
+}
+
+function create_local_indent_file() {
+	write_log
+	mkdir -p "$indent_dir"
+	cp "$temp_dir/runtime/indent/sh.vim" "$indent_dir"
+}
+
+function disable_case_labels_indentation() {
+	write_log
+	default_setting="'case-labels': function('shiftwidth')"
+	new_setting="'case-labels': 0"
+	sed -i "s/$default_setting/$new_setting/g" "$indent_dir/$indent_file"
+}
+
+function clean_up() {
+	write_log
+	rm -rf "$temp_dir"
+}
+
+function main() {
+	clone_vim_repo
+	create_local_indent_file
+	disable_case_labels_indentation
+	clean_up
+}
+
+main
