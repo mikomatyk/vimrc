@@ -62,7 +62,7 @@ This script will download Polish [Hunspell][01] dictionary from the
 
 ## Author
 
-Created and [unlicensed][98] by [Mikołaj Bartnicki][99]
+Created and [unlicensed][98] by [Mikołaj Bartnicki][99].
 
 [00]:https://www.vim.org/scripts/script.php?script_id=231
 [01]:https://hunspell.github.io
