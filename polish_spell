@@ -2,12 +2,12 @@
 
 # Installs Polish spellcheck dictionary.
 #
-# Latest revision: 2025-01-15
+# Latest revision: 2025-01-18
 #
 # Written and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
 # please read UNLICENSE file for details.
 
-# stop and exit on first error
+# Stop and exit on first error.
 set -e
 
 dict_repo_url="https://github.com/LibreOffice/dictionaries"
@@ -17,16 +17,16 @@ aff_file="$locale.aff"
 dic_file="$locale.dic"
 spell_dir="spell"
 
-function write_log() {
+write_log() {
 	echo "::::::::$0::${FUNCNAME[1]}()"
 }
 
-function clone_dict_repo() {
+clone_dict_repo() {
 	write_log
 	git clone "$dict_repo_url" "$temp_dir"
 }
 
-function make_spell_file() {
+make_spell_file() {
 	write_log
 	mkdir -p "$spell_dir"
 	cp "$temp_dir/$locale/$aff_file" "$spell_dir"
@@ -36,14 +36,14 @@ function make_spell_file() {
 	cd ..
 }
 
-function clean_up() {
+clean_up() {
 	write_log
 	rm -rf "$temp_dir"
 	rm "$spell_dir/$aff_file"
 	rm "$spell_dir/$dic_file"
 }
 
-function main() {
+main() {
 	write_log
 	clone_dict_repo
 	make_spell_file
