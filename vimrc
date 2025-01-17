@@ -1,9 +1,9 @@
 " Configuration file for Vim text editor
 "
-" Latest revision: 2025-01-16
+" Latest revision: 2025-01-17
 "
 " Created and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
-" please read LICENSE file for details.
+" please read UNLICENSE file for details.
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Work as Vi Improved instead of pure Vi, must be the first one.
@@ -116,9 +116,9 @@ if has("gui_running")
 
 	" Set fonts for Windows and Linux.
 	if has("windows")
-		set guifont=Consolas:h16:cEASTEUROPE
+		set guifont=Consolas:h12:cEASTEUROPE
 	elseif has("unix")
-		set guifont=Monospace\ 16
+		set guifont=Monospace\ 12
 	endif
 endif
 
