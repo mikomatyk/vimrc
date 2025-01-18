@@ -1,6 +1,9 @@
 " Configuration file for Vim text editor
 "
-" Latest revision: 2025-01-17
+" Shared non-GUI settings for both console Vim and gVim. Additional
+" GUI-specific settings are in the 'gvimrc' file.
+"
+" Latest revision: 2025-01-18
 "
 " Created and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
 " please read UNLICENSE file for details.
@@ -97,32 +100,6 @@ filetype indent on
 runtime macros/justify.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use the following settings only in GUI mode.
-if has("gui_running")
-	" Set window width - number of columns.
-	set columns=85
-
-	" Set window height - number of lines.
-	set lines=25
-
-	" Display line numbers on the left margin.
-	set number
-
-	" Use light background.
-	set background=light
-
-	" Use 'retrobox' color scheme.
-	colorscheme retrobox
-
-	" Set fonts for Windows and Linux.
-	if has("windows")
-		set guifont=Consolas:h12:cEASTEUROPE
-	elseif has("unix")
-		set guifont=Monospace\ 12
-	endif
-endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Run the following commands automatically.
 if has("autocmd")
 	" Wrap lines at 80th column in Plain Text files.
@@ -152,8 +129,16 @@ if has("autocmd")
 	" Delete all trailing white spaces (caution when editing Markdown).
 	autocmd BufWritePre * :%s/\s\+$//ge
 
-	"Restore a trailing space in e-mail signature separator (for Alpine).
+	" Restore a trailing space in e-mail signature separator (for Alpine).
 	autocmd BufWritePre /tmp/pico.* :%s/^--$/--\ /ge
+
+	" Format source code in the current buffer using the external tool.
+	" - formatter: the external formatting command.
+	function! Format_source_code(formatter)
+		let l:pos = getpos(".")
+		execute '1,$!' . a:formatter
+		call setpos('.', l:pos)
+	endfunction
 
 	" Format Go source code on save.
 	if executable("gofmt")
@@ -165,14 +150,6 @@ if has("autocmd")
 		autocmd BufWritePre *.rs call Format_source_code("rustfmt")
 	endif
 endif
-
-" Format source code in the current buffer using the external tool.
-" - formatter: the external formatting command, such as 'gofmt' or 'rustfmt'.
-function Format_source_code(formatter)
-	let l:pos = getpos(".")
-	execute '1,$!' . a:formatter
-	call setpos('.', l:pos)
-endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Center the view on the next search result.
