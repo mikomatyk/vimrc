@@ -1,8 +1,13 @@
+# Latest revision: 2025-01-18
+
+# local colorschemes
+colors/
+
 # local indent files
 indent/
 
 # local plugins
 plugin/
 
-# local spellcheck files
+# local spellcheck dictionaries
 spell/
