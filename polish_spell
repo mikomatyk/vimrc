@@ -2,6 +2,9 @@
 
 # Installs Polish spellcheck dictionary.
 #
+# Must be run from '~/vimfiles' (Windows) or '~/.vim' (Linux). Existing files
+# are overwritten without warning or backup!
+#
 # Latest revision: 2025-01-21
 #
 # Created and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
