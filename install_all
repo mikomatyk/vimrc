@@ -2,9 +2,9 @@
 
 # Installs (or updates, if already present) all optional components:
 # - Polish spellcheck dictionary
-# - Disables case labels indentation in Shell scripts
-# - Smart Tabs plugin
 # - Retrobox color scheme
+# - Disables case label indentation in Shell scripts
+# - Smart Tabs plugin
 #
 # Must be run from '~/vimfiles' (Windows) or '~/.vim' (Linux), and all scripts
 # called in main() function must be present. Existing files are overwritten
@@ -30,9 +30,9 @@ write_log() {
 main() {
 	write_log
 	./polish_spell
+	./retrobox_scheme
 	./shell_indent
 	./smart_tabs
-	./retrobox_scheme
 }
 
 main
