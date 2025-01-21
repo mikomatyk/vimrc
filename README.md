@@ -51,7 +51,7 @@ color scheme, you can install it by running the script:
     retrobox_scheme
 
 This will download and locally install `retrobox` color scheme for you. Keep in
-mind, that in some really ancient Vim versions `retrobox` would not work anyway.
+mind that in some really ancient Vim versions `retrobox` would not work anyway.
 
 ### Shell scripts indentation tuning
 
@@ -61,7 +61,7 @@ script:
     shell_indent
 
 This script will create a local copy of the Vim Shell indent file, and modify it
-so that `case` label in Shell scripts are no longer indented. Reverting to the
+so that `case` label in Shell scripts is no longer indented. Reverting to the
 original default behavior is as simple as deleting the local `./indent/sh.vim`
 file.
 
