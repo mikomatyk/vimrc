@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
-# Creates a custom Vim indent file disabling case labels indentation in Shell
-# scripts. Must be run from ~/.vim (Linux) or ~/vimfiles (Windows) directory.
+# Creates a custom Vim indent file disabling case label indentation in Shell
+# scripts.
+#
+# Must be run from '~/vimfiles' (Windows) or '~/.vim' (Linux). Existing files
+# are overwritten without warning or backup!
 #
 # Latest revision: 2025-01-18
 #
