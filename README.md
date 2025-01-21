@@ -65,15 +65,6 @@ so that `case` label in Shell scripts are no longer indented. Reverting to the
 original default behavior is as simple as deleting the local `./indent/sh.vim`
 file.
 
-### Install / Update
-
-You can install all the above optional files by running the single script
-wrapping everything together:
-
-    install_all
-
-It will also update any files already present.
-
 ### Smart tabs
 
 To make Vim use tabs for code indentation and spaces for alignment, run the
@@ -84,6 +75,15 @@ following script:
 This script downloads and locally installs the [Smart Tabs][00] plugin made by
 Michael Geddes. Although this plugin has not been maintained for many years, it
 still works for me.
+
+### Install / Update
+
+You can install all the above optional files by running the single script
+wrapping everything together:
+
+    install_all
+
+It will also update any files already present.
 
 ## Author
 
