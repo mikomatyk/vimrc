@@ -6,8 +6,9 @@
 # - Smart Tabs plugin
 # - Retrobox color scheme
 #
-# Existing files are overwritten without warning or any backup!
-# Must be run from '~/vimfiles' (Windows) or '~/.vim' (Linux).
+# Must be run from '~/vimfiles' (Windows) or '~/.vim' (Linux), and all scripts
+# called in main() function must be present. Existing files are overwritten
+# without warning or backup!
 #
 # Latest revision: 2025-01-21
 #
@@ -28,10 +29,10 @@ write_log() {
 
 main() {
 	write_log
-	polish_spell
-	shell_indent
-	smart_tabs
-	retrobox_scheme
+	./polish_spell
+	./shell_indent
+	./smart_tabs
+	./retrobox_scheme
 }
 
 main
