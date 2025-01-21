@@ -4,8 +4,8 @@
 #
 # Latest revision: 2025-01-21
 #
-# Written and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
-# please read UNLICENSE file for details.
+# Created and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>; please
+# read UNLICENSE file for details.
 
 # Stop and exit on first error.
 set -e

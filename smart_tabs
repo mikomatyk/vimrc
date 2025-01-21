@@ -2,9 +2,9 @@
 
 # Installs smart tabs plugin (tabs for indentation, spaces for alignment).
 #
-# Latest revision: 2025-01-18
+# Latest revision: 2025-01-21
 #
-# Written and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
+# Created and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
 # please read UNLICENSE file for details.
 
 # Stop and exit on first error.
