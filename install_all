@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# Installs (or updates, if already present) all optional components:
+# - Polish spellcheck dictionary
+# - Disables case labels indentation in Shell scripts
+# - Smart Tabs plugin
+# - Retrobox color scheme
+#
+# Existing files are overwritten without warning or any backup!
+# Must be run from '~/vimfiles' (Windows) or '~/.vim' (Linux).
+#
+# Latest revision: 2025-01-21
+#
+# Created and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>; please
+# read UNLICENSE file for details.
+
+# Stop and exit on first error.
+set -e
+
+vim_repo_url="https://github.com/vim/vim"
+temp_dir="$(mktemp -d)"
+colorscheme_dir="colors"
+colorscheme_file="retrobox.vim"
+
+write_log() {
+        echo "::::::::$0::${FUNCNAME[1]}()"
+}
+
+main() {
+	write_log
+	polish_spell
+	shell_indent
+	smart_tabs
+	retrobox_scheme
+}
+
+main
