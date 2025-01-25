@@ -111,7 +111,7 @@ if has("autocmd")
     " Wrap lines at 80th column in Markdown files.
     autocmd FileType markdown setlocal textwidth=80
 
-    " Wrap lines at 80th column in Rust source code files.
+    " Wrap lines at 100th column in Rust source code files.
     autocmd FileType rust setlocal textwidth=100
 
     " Wrap lines at 72nd column in git commit messages.
