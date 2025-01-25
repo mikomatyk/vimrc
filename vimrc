@@ -33,7 +33,7 @@ set nobackup
 " Don't break long lines.
 set textwidth=0
 
-" Fill tabs with spaces, don't use real tab character.
+" Fill tabs with spaces (press [Ctrl]+[V][Tab] to insert real tab character).
 set expandtab
 
 " Set tabstop size - number of columns.
@@ -117,12 +117,11 @@ if has("autocmd")
     " Wrap lines at 72nd column in alpine e-mail client.
     autocmd BufNewFile,BufReadPre /tmp/pico.* setlocal textwidth=72
 
-    " Force tabs for Rust code indentation.
-    "autocmd FileType rust setlocal noexpandtab ts=8 sts=8 sw=8
-    autocmd FileType rust setlocal textwidth=100 " by Rust Coding Std.
+    " Limit line length to 100 characters for Rust code.
+    autocmd FileType rust setlocal textwidth=100
 
-    " Use spaces for code indentation in YAML files.
-    "autocmd FileType yaml setlocal expandtab ts=8 sts=8 sw=8
+    " Use 2 spaces for code indentation in YAML files.
+    autocmd FileType yaml setlocal expandtab ts=2 sts=2 sw=2
 
     " Delete empty or whitespace-only lines at the end of file.
     autocmd BufWritePre * :%s/\(\s*\n\)\+\%$//ge
