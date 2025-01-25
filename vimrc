@@ -3,7 +3,7 @@
 " Shared non-GUI settings for both console Vim and gVim. Additional
 " GUI-specific settings are in the 'gvimrc' file.
 "
-" Latest revision: 2025-01-24
+" Latest revision: 2025-01-25
 "
 " Created and unlicensed by Mikołaj Bartnicki <mikolaj@bartnicki.org>;
 " please read UNLICENSE file for details.
@@ -111,17 +111,20 @@ if has("autocmd")
     " Wrap lines at 80th column in Markdown files.
     autocmd FileType markdown setlocal textwidth=80
 
+    " Wrap lines at 80th column in Rust source code files.
+    autocmd FileType rust setlocal textwidth=100
+
     " Wrap lines at 72nd column in git commit messages.
     autocmd BufNewFile,BufReadPre COMMIT_EDITMSG setlocal textwidth=72
 
     " Wrap lines at 72nd column in alpine e-mail client.
     autocmd BufNewFile,BufReadPre /tmp/pico.* setlocal textwidth=72
 
-    " Limit line length to 100 characters for Rust code.
-    autocmd FileType rust setlocal textwidth=100
-
     " Use 2 spaces for code indentation in YAML files.
-    autocmd FileType yaml setlocal expandtab ts=2 sts=2 sw=2
+    autocmd FileType yaml setlocal et ts=2 sts=2 sw=2
+
+    " Use hard tab for code indentation in Go source code.
+    autocmd FileType go setlocal noet ts=4 sts=4 sw=4
 
     " Delete empty or whitespace-only lines at the end of file.
     autocmd BufWritePre * :%s/\(\s*\n\)\+\%$//ge
@@ -173,31 +176,31 @@ nnoremap <M-F1> :let &bg = (&bg == "dark" ? "light" : "dark")<CR>
 inoremap <M-F1> <C-o>:let &bg = (&bg == "dark" ? "light" : "dark")<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Press [F2] to set 2 columns wide tabs and use real tab characters.
-nnoremap <F2> :set noexpandtab tabstop=2 softtabstop=2 shiftwidth=2<CR>
-inoremap <F2> <C-o>:set noexpandtab tabstop=2 softtabstop=2 shiftwidth=2<CR>
+" Press [F2] to set 2 columns wide tabs and fill them with spaces.
+nnoremap <F2> :set expandtab tabstop=2 softtabstop=2 shiftwidth=2<CR>
+inoremap <F2> <C-o>:set expandtab tabstop=2 softtabstop=2 shiftwidth=2<CR>
 
-" Press [Ctrl]+[F2] to set 2 columns wide tabs and fill them with spaces.
-nnoremap <C-F2> :set expandtab tabstop=2 softtabstop=2 shiftwidth=2<CR>
-inoremap <C-F2> <C-o>:set expandtab tabstop=2 softtabstop=2 shiftwidth=2<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Press [F3] to set 4 columns wide tabs and use real tab characters.
-nnoremap <F3> :set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4<CR>
-inoremap <F3> <C-o>:set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4<CR>
-
-" Press [Ctrl]+[F3] to set 4 columns wide tabs and fill them with spaces.
-nnoremap <C-F3> :set expandtab tabstop=4 softtabstop=4 shiftwidth=4<CR>
-inoremap <C-F3> <C-o>:set expandtab tabstop=4 softtabstop=4 shiftwidth=4<CR>
+" Press [Ctrl]+[F2] to set 2 columns wide tabs and use real tab characters.
+nnoremap <C-F2> :set noexpandtab tabstop=2 softtabstop=2 shiftwidth=2<CR>
+inoremap <C-F2> <C-o>:set noexpandtab tabstop=2 softtabstop=2 shiftwidth=2<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Press [F4] to set 8 columns wide tabs and use real tab characters.
-nnoremap <F4> :set noexpandtab tabstop=8 softtabstop=8 shiftwidth=8<CR>
-inoremap <F4> <C-o>:set noexpandtab tabstop=8 softtabstop=8 shiftwidth=8<CR>
+" Press [F3] to set 4 columns wide tabs and fill them with spaces.
+nnoremap <F3> :set expandtab tabstop=4 softtabstop=4 shiftwidth=4<CR>
+inoremap <F3> <C-o>:set expandtab tabstop=4 softtabstop=4 shiftwidth=4<CR>
 
-" Press [Ctrl]+[F4] to set 8 columns wide tabs and fill them with spaces.
-nnoremap <C-F4> :set expandtab tabstop=8 softtabstop=8 shiftwidth=8<CR>
-inoremap <C-F4> <C-o>:set expandtab tabstop=8 softtabstop=8 shiftwidth=8<CR>
+" Press [Ctrl]+[F3] to set 4 columns wide tabs and use real tab characters.
+nnoremap <C-F3> :set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4<CR>
+inoremap <C-F3> <C-o>:set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Press [F4] to set 8 columns wide tabs and fill them with spaces.
+nnoremap <F4> :set expandtab tabstop=8 softtabstop=8 shiftwidth=8<CR>
+inoremap <F4> <C-o>:set expandtab tabstop=8 softtabstop=8 shiftwidth=8<CR>
+
+" Press [Ctrl]+[F4] to set 8 columns wide tabs and use real tab characters.
+nnoremap <C-F4> :set noexpandtab tabstop=8 softtabstop=8 shiftwidth=8<CR>
+inoremap <C-F4> <C-o>:set noexpandtab tabstop=8 softtabstop=8 shiftwidth=8<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Press [F5] to turn search results highlighting off.
