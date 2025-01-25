@@ -33,17 +33,17 @@ set nobackup
 " Don't break long lines.
 set textwidth=0
 
-" Don't fill tabs with spaces, use real tab character.
-set noexpandtab
+" Fill tabs with spaces, don't use real tab character.
+set expandtab
 
 " Set tabstop size - number of columns.
-set tabstop=8
+set tabstop=4
 
 " Set number of spaces for [Tab] and [Backspace] when 'expandtab' is used.
-set softtabstop=8
+set softtabstop=4
 
 " Set code indentation depth.
-set shiftwidth=8
+set shiftwidth=4
 
 " Tune code indentation, see ':help cinoptions-values' for details.
 set cinoptions=:0g0(0
@@ -105,53 +105,54 @@ runtime macros/justify.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Run the following commands automatically.
 if has("autocmd")
-	" Wrap lines at 80th column in Plain Text files.
-	autocmd FileType text setlocal textwidth=80
+    " Wrap lines at 80th column in Plain Text files.
+    autocmd FileType text setlocal textwidth=80
 
-	" Wrap lines at 80th column in Markdown files.
-	autocmd FileType markdown setlocal textwidth=80
+    " Wrap lines at 80th column in Markdown files.
+    autocmd FileType markdown setlocal textwidth=80
 
-	" Wrap lines at 72nd column in git commit messages.
-	autocmd BufNewFile,BufReadPre COMMIT_EDITMSG setlocal textwidth=72
+    " Wrap lines at 72nd column in git commit messages.
+    autocmd BufNewFile,BufReadPre COMMIT_EDITMSG setlocal textwidth=72
 
-	" Wrap lines at 72nd column in alpine e-mail client.
-	autocmd BufNewFile,BufReadPre /tmp/pico.* setlocal textwidth=72
+    " Wrap lines at 72nd column in alpine e-mail client.
+    autocmd BufNewFile,BufReadPre /tmp/pico.* setlocal textwidth=72
 
-	" Force tabs for Rust code indentation.
-	autocmd FileType rust setlocal noexpandtab ts=8 sts=8 sw=8
+    " Force tabs for Rust code indentation.
+    "autocmd FileType rust setlocal noexpandtab ts=8 sts=8 sw=8
+    autocmd FileType rust setlocal textwidth=100 " by Rust Coding Std.
 
-	" Use spaces for code indentation in YAML files.
-	autocmd FileType yaml setlocal expandtab ts=8 sts=8 sw=8
+    " Use spaces for code indentation in YAML files.
+    "autocmd FileType yaml setlocal expandtab ts=8 sts=8 sw=8
 
-	" Delete empty or whitespace-only lines at the end of file.
-	autocmd BufWritePre * :%s/\(\s*\n\)\+\%$//ge
+    " Delete empty or whitespace-only lines at the end of file.
+    autocmd BufWritePre * :%s/\(\s*\n\)\+\%$//ge
 
-	" Reduce each group of empty or whitespace-only lines to one empty line.
-	autocmd BufWritePre * :%s/\(\s*\n\)\{3,}/\r\r/ge
+    " Reduce each group of empty or whitespace-only lines to one empty line.
+    autocmd BufWritePre * :%s/\(\s*\n\)\{3,}/\r\r/ge
 
-	" Delete all trailing white spaces (caution when editing Markdown).
-	autocmd BufWritePre * :%s/\s\+$//ge
+    " Delete all trailing white spaces (caution when editing Markdown).
+    autocmd BufWritePre * :%s/\s\+$//ge
 
-	" Restore a trailing space in e-mail signature separator (for Alpine).
-	autocmd BufWritePre /tmp/pico.* :%s/^--$/--\ /ge
+    " Restore a trailing space in e-mail signature separator (for Alpine).
+    autocmd BufWritePre /tmp/pico.* :%s/^--$/--\ /ge
 
-	" Format source code in the current buffer using the external tool.
-	" - formatter: the external formatting command.
-	function! Format_source_code(formatter)
-		let l:pos = getpos(".")
-		execute '1,$!' . a:formatter
-		call setpos('.', l:pos)
-	endfunction
+    " Format source code in the current buffer using the external tool.
+    " - formatter: the external formatting command.
+    function! Format_source_code(formatter)
+        let l:pos = getpos(".")
+        execute '1,$!' . a:formatter
+        call setpos('.', l:pos)
+    endfunction
 
-	" Format Go source code on save.
-	if executable("gofmt")
-		autocmd BufWritePre *.go call Format_source_code("gofmt")
-	endif
+    " Format Go source code on save.
+    if executable("gofmt")
+        autocmd BufWritePre *.go call Format_source_code("gofmt")
+    endif
 
-	" Format Rust source code on save.
-	if executable("rustfmt")
-		autocmd BufWritePre *.rs call Format_source_code("rustfmt")
-	endif
+    " Format Rust source code on save.
+    if executable("rustfmt")
+        autocmd BufWritePre *.rs call Format_source_code("rustfmt")
+    endif
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
